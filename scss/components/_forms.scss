@@ -1,0 +1,21 @@
+// ======================================
+//  Forms
+// ======================================
+
+.search {
+  @include flexy($disp: flex, $just: center, $align-items: center);
+  width: 100%;
+  max-width: 350px;
+  margin: 0 auto;
+  & input {
+    width: 100%;
+    @include roundy;
+    padding: .5em 1em;
+    outline: 0;
+    border: 1px solid $theme-card-border;
+  }
+  @media (min-width: 768px) {
+    width: 30%;
+    margin: inherit;
+  }
+}

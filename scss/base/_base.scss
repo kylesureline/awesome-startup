@@ -1,0 +1,16 @@
+// ======================================
+//  Base
+// ======================================
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: .5em;
+  background-color: $theme-background;
+  @media (min-width: 768px) {
+    padding: 1em;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}

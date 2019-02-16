@@ -1,0 +1,47 @@
+// =========================================
+//  Mixins
+// =========================================
+
+// Debug
+@mixin debug($color: red) {
+  border: 1px solid $color;
+}
+
+// Center containers
+@mixin center($w) {
+  width: $w;
+  max-width: $max-width;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Create a flex container
+@mixin flexy(
+  $disp: flex,
+  $dir: null,
+  $wrap: null,
+  $just: null,
+  $align-items: null) {
+  display: $disp;
+  flex-direction: $dir;
+  flex-wrap: $wrap;
+  justify-content: $just;
+  align-items: $align-items;
+}
+
+// Colors
+@mixin themes($map) {
+  @each $theme, $color in $map {
+    &--#{$theme} {
+      background-color: $color;
+    }
+  }
+}
+
+@mixin fullWidthGridItem {
+  grid-column: 1 / -1;
+}
+
+@mixin roundy($radius: 6px) {
+  border-radius: $radius;
+}
