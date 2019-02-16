@@ -1,0 +1,80 @@
+// ======================================
+//  Modal
+// ======================================
+
+.modal {
+  background-color: rgba(0, 0, 0, .6);
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include flexy($disp: flex, $dir: column, $just: center, $align-items: center);
+}
+
+.modal-content {
+  background-color: $white;
+  padding: 1em;
+  @include roundy;
+  border: 1px solid $theme-card-border;
+  text-align: center;
+  @media (min-width: 768px) {
+    padding: 2em;
+  }
+  @media (min-width: 1024px) {
+    padding: 3em;
+  }
+}
+
+.modal .profile {
+  @include roundy($radius: 50%);
+  width: 172px;
+  height: 172px;
+}
+
+.modal {
+  & .email,
+  & .city,
+  & .secondary {
+    color: $theme-light-font;
+  }
+}
+
+.modal {
+  & .primary {
+    padding-bottom: .5em;
+  }
+  & .secondary {
+    padding-top: .5em;
+  }
+  @media (min-width: 768px) {
+    & .primary {
+      padding-bottom: 1em;
+    }
+    & .secondary {
+      padding-top: 1em;
+    }
+  }
+}
+
+.modal .contact {
+  padding-left: 1em;
+  padding-right: 1em;
+  &.secondary {
+    border-top: 1px solid $theme-card-border;
+  }
+  @media (min-width: 768px) {
+    padding-left: 2.5em;
+    padding-right: 2.5em;
+  }
+  @media (min-width: 1024px) {
+    padding-left: 4em;
+    padding-right: 4em;
+  }
+}
+
+.modal .birthday {
+  &::before {
+    content: 'Birthday: '
+  }
+}
