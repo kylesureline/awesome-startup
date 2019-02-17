@@ -76,6 +76,7 @@
 
 <div class="modal">
   <div class="modal-content">
+    <span class="close">×</span>
     <img class="profile" src="https://randomuser.me/api/portraits/men/73.jpg" alt="">
     <div>
       <div class="contact primary">
@@ -105,11 +106,17 @@
 
     const modal = createElement('div', 'className', 'modal');
     const modalContent = createElement('div', 'className', 'modal-content');
+    const closeBtn = createElement('span', 'className', 'close');
+    closeBtn.textContent = '×';
     modalContent.innerHTML = content;
+    modalContent.insertBefore(closeBtn, modalContent.children[0]);
     modal.appendChild(modalContent);
 
-    const firstChild = body.children[0];
-		body.insertBefore(modal, firstChild);
+    closeBtn.addEventListener('click', (e) => {
+      body.removeChild(modal);
+    });
+
+		body.insertBefore(modal, body.children[0]);
   }
 
   main.addEventListener('click', (e) => {
@@ -126,7 +133,6 @@
       return getCardDiv(target).innerHTML;
     }
     if(e.target.tagName !== 'MAIN') {
-      // console.log(getContent(e.target));
       displayModal(getContent(e.target));
     }
   });

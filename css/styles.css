@@ -490,6 +490,7 @@ main {
 }
 
 .modal {
+  z-index: 1000;
   background-color: rgba(0, 0, 0, 0.6);
   height: 100%;
   width: 100%;
@@ -505,6 +506,7 @@ main {
 .modal-content {
   background-color: #fff;
   padding: 1em;
+  position: relative;
   border-radius: 6px;
   border: 1px solid #d3d2d3;
   text-align: center;
@@ -518,6 +520,15 @@ main {
   .modal-content {
     padding: 3em;
   }
+}
+.modal-content .close {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 1.5em;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
 }
 
 .modal .profile {

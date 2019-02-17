@@ -3,6 +3,7 @@
 // ======================================
 
 .modal {
+  z-index: 1000;
   background-color: rgba(0, 0, 0, .6);
   height: 100%;
   width: 100%;
@@ -15,6 +16,7 @@
 .modal-content {
   background-color: $white;
   padding: 1em;
+  position: relative;
   @include roundy;
   border: 1px solid $theme-card-border;
   text-align: center;
@@ -23,6 +25,15 @@
   }
   @media (min-width: 1024px) {
     padding: 3em;
+  }
+  & .close {
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    font-size: 1.5em;
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
   }
 }
 
