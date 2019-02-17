@@ -128,8 +128,6 @@
 
   function displayModal(personIndex) {
 
-    console.log(personIndex);
-
     const person = people[personIndex];
 
     const modal = document.createElement('div');
