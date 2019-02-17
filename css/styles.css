@@ -514,6 +514,32 @@ main {
   justify-content: center;
   align-items: center;
 }
+.modal .contact.secondary {
+  border-top: 1px solid #d3d2d3;
+}
+.modal .birthday::before {
+  content: "Birthday: ";
+}
+.modal .primary {
+  padding-bottom: 0.5em;
+}
+.modal .secondary {
+  padding-top: 0.5em;
+}
+@media (min-width: 768px) {
+  .modal .primary {
+    padding-bottom: 1em;
+  }
+  .modal .secondary {
+    padding-top: 1em;
+  }
+}
+.modal .email, .modal .city, .modal .secondary {
+  color: #8f9498;
+}
+.modal .name {
+  text-transform: capitalize;
+}
 
 .modal-content {
   width: calc(100% - 1em);
@@ -558,33 +584,6 @@ main {
   border-radius: 50%;
   width: 172px;
   height: 172px;
-}
-
-.modal .email, .modal .city, .modal .secondary {
-  color: #8f9498;
-}
-
-.modal .primary {
-  padding-bottom: 0.5em;
-}
-.modal .secondary {
-  padding-top: 0.5em;
-}
-@media (min-width: 768px) {
-  .modal .primary {
-    padding-bottom: 1em;
-  }
-  .modal .secondary {
-    padding-top: 1em;
-  }
-}
-
-.modal .contact.secondary {
-  border-top: 1px solid #d3d2d3;
-}
-
-.modal .birthday::before {
-  content: "Birthday: ";
 }
 
 /*# sourceMappingURL=styles.css.map */
