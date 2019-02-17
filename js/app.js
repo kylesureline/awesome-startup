@@ -126,50 +126,86 @@
 
 */
 
-  function displayModal(content) {
+  function displayModal(cardId) {
 
-    function createElement(tagName, property, value) {
-      const element = document.createElement(tagName);
-      element[property] = value;
-      return element;
-    }
+    const personIndex = parseInt(cardId.split('-')[1]);
+    const person = people[personIndex];
 
-    const modal = createElement('div', 'className', 'modal');
-    const modalContent = createElement('div', 'className', 'modal-content');
+    const modal = document.createElement('div');
+    modal.className = 'modal';
 
-    const btns = `
-      <span class="close"><img src="icons/close.svg" alt></span>
-      <span class="arrow left"><img src="icons/arrow_left.svg" alt></span>
-      <span class="arrow right"><img src="icons/arrow_right.svg" alt></span>
+    const modalContent = `
+      <div class="modal-content">
+        <span class="close"><img src="icons/close.svg" alt></span>
+        <span class="arrow left"><img src="icons/arrow_left.svg" alt></span>
+        <span class="arrow right"><img src="icons/arrow_right.svg" alt></span>
+        <img class="profile" src="${person.picture}" alt="">
+        <div>
+          <div class="contact primary">
+            <h2 class="name">${person.name}</h2>
+            <p class="email">${person.email}</p>
+            <p class="city">${person.city}</p>
+          </div>
+          <div class="contact secondary">
+            <p class="phone">${person.phone}</p>
+            <p class="address">${person.address}</p>
+            <p class="birthday">${person.birthday}</p>
+          </div>
+        </div>
+      </div>
     `;
 
-    modalContent.innerHTML = btns + content;
-    // modalContent.insertBefore(closeBtn, modalContent.children[0]);
-    modal.appendChild(modalContent);
+    modal.innerHTML = modalContent;
 
-    modalContent.querySelector('.close').addEventListener('click', (e) => {
+    body.insertBefore(modal, body.children[0]);
+
+    modal.querySelector('.close').addEventListener('click', (e) => {
       body.removeChild(modal);
     });
 
-		body.insertBefore(modal, body.children[0]);
-  }
+
+    // function createElement(tagName, property, value) {
+    //   const element = document.createElement(tagName);
+    //   element[property] = value;
+    //   return element;
+    // }
+    //
+    // const modal = createElement('div', 'className', 'modal');
+    // const modalContent = createElement('div', 'className', 'modal-content');
+    //
+    // const btns = `
+    //   <span class="close"><img src="icons/close.svg" alt></span>
+    //   <span class="arrow left"><img src="icons/arrow_left.svg" alt></span>
+    //   <span class="arrow right"><img src="icons/arrow_right.svg" alt></span>
+    // `;
+    //
+    // modalContent.innerHTML = btns + content;
+    // // modalContent.insertBefore(closeBtn, modalContent.children[0]);
+    // modal.appendChild(modalContent);
+    //
+    // modalContent.querySelector('.close').addEventListener('click', (e) => {
+    //   body.removeChild(modal);
+    // });
+    //
+		// body.insertBefore(modal, body.children[0]);
+
+  } // end displayModal
 
   main.addEventListener('click', (e) => {
-    function getContent(target) {
 
-      function getCardDiv(target) {
-        if(target.className === 'card') {
-          return target;
-        } else {
-          return getCardDiv(target.parentNode);
-        }
+    function getCardDiv(target) {
+      if(target.className === 'card') {
+        return target;
+      } else {
+        return getCardDiv(target.parentNode);
       }
+    }
 
-      return getCardDiv(target).innerHTML;
-    }
     if(e.target.tagName !== 'MAIN') {
-      displayModal(getContent(e.target));
+      let cardId = getCardDiv(e.target).id;
+      displayModal(cardId);
     }
+
   });
 
   init();
