@@ -19,3 +19,11 @@ main {
   margin: 0 auto;
   max-width: 1400px;
 }
+
+.loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 2em;
+  height: calc(100vh - 200px);
+  @include flexy($disp: flex, $dir: column, $just: center);
+}

@@ -415,6 +415,16 @@ main {
   max-width: 1400px;
 }
 
+.loading {
+  grid-column: 1/-1;
+  text-align: center;
+  font-size: 2em;
+  height: calc(100vh - 200px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .card {
   padding: 0.75em;
   border: 2px solid #d3d2d3;
@@ -506,6 +516,8 @@ main {
 }
 
 .modal-content {
+  width: calc(100% - 1em);
+  max-width: 500px;
   background-color: #fff;
   padding: 1em;
   position: relative;
@@ -539,6 +551,7 @@ main {
 .modal-content .close, .modal-content .left, .modal-content .right {
   cursor: pointer;
   position: absolute;
+  padding: 0.5em;
 }
 
 .modal .profile {
@@ -566,24 +579,8 @@ main {
   }
 }
 
-.modal .contact {
-  padding-left: 1em;
-  padding-right: 1em;
-}
 .modal .contact.secondary {
   border-top: 1px solid #d3d2d3;
-}
-@media (min-width: 768px) {
-  .modal .contact {
-    padding-left: 2.5em;
-    padding-right: 2.5em;
-  }
-}
-@media (min-width: 1024px) {
-  .modal .contact {
-    padding-left: 4em;
-    padding-right: 4em;
-  }
 }
 
 .modal .birthday::before {

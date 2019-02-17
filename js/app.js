@@ -30,6 +30,8 @@
   }
 
   function placeCards() {
+    main.innerHTML = '';
+
     people.forEach((person, index) => {
       let div = `
         <div id="card-${index}" class="card" style="opacity: 0;">
@@ -81,6 +83,8 @@
       return `${month}/${day}/${year}`;
     }
 
+    main.innerHTML = '<div class="loading"><p>Loading...</p></div>';
+
     fetchData('https://randomuser.me/api/?results=12&nat=us')
       .then(data => {
         const users = data.results;
@@ -100,31 +104,6 @@
       .then(e => placeCards())
       .then(e => fadeInCards());
     } // end init
-
-/*
-
-<div class="modal">
-  <div class="modal-content">
-    <span class="close"><img src="icons/close.svg" alt></span>
-    <span class="arrow left"><img src="icons/arrow_left.svg" alt></span>
-    <span class="arrow right"><img src="icons/arrow_right.svg" alt></span>
-    <img class="profile" src="https://randomuser.me/api/portraits/men/73.jpg" alt="">
-    <div>
-      <div class="contact primary">
-        <h2 class="name">lee andrews</h2>
-        <p class="email">lee.andrews@example.com</p>
-        <p class="city">surprise</p>
-      </div>
-      <div class="contact secondary">
-        <p class="phone">(171)-721-9019</p>
-        <p class="address">5410 valwood pkwy surprise, kansas 39340</p>
-        <p class="birthday">08/17/70</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-*/
 
   function displayModal(personIndex) {
 

@@ -14,6 +14,8 @@
 }
 
 .modal-content {
+  width: calc(100% - 1em);
+  max-width: 500px;
   background-color: $white;
   padding: 1em;
   position: relative;
@@ -46,6 +48,7 @@
   & .right {
     cursor: pointer;
     position: absolute;
+    padding: .5em;
   }
 }
 
@@ -81,18 +84,8 @@
 }
 
 .modal .contact {
-  padding-left: 1em;
-  padding-right: 1em;
   &.secondary {
     border-top: 1px solid $theme-card-border;
-  }
-  @media (min-width: 768px) {
-    padding-left: 2.5em;
-    padding-right: 2.5em;
-  }
-  @media (min-width: 1024px) {
-    padding-left: 4em;
-    padding-right: 4em;
   }
 }
 
