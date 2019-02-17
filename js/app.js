@@ -19,33 +19,6 @@
               .catch(error => console.log('Looks like there was a problem', error));
   }
 
-  function formatAddress(user) {
-    return `${user.location.street} ${user.location.city}, ${user.location.state} ${user.location.postcode}`;
-  }
-
-  function formatBirthday(date) {
-
-    function pad(d) {
-      const stringD = String(d);
-      if(stringD.length === 1) {
-        return '0' + stringD;
-      }
-      return stringD;
-    }
-
-    function formatYear(fullYear) {
-      return String(fullYear).slice(2);
-    }
-
-    const d = new Date(date);
-
-    const month = pad(d.getMonth() + 1);
-    const day = pad(d.getDate());
-    const year = formatYear(d.getFullYear());
-
-    return `${month}/${day}/${year}`;
-  }
-
   function fadeInCards() {
     const cards = main.querySelectorAll('.card');
     let time = 50;
@@ -80,6 +53,34 @@
   } // end placeCards
 
   function init() {
+
+    function formatAddress(user) {
+      return `${user.location.street} ${user.location.city}, ${user.location.state} ${user.location.postcode}`;
+    }
+
+    function formatBirthday(date) {
+
+      function pad(d) {
+        const stringD = String(d);
+        if(stringD.length === 1) {
+          return '0' + stringD;
+        }
+        return stringD;
+      }
+
+      function formatYear(fullYear) {
+        return String(fullYear).slice(2);
+      }
+
+      const d = new Date(date);
+
+      const month = pad(d.getMonth() + 1);
+      const day = pad(d.getDate());
+      const year = formatYear(d.getFullYear());
+
+      return `${month}/${day}/${year}`;
+    }
+
     fetchData('https://randomuser.me/api/?results=12&nat=us')
       .then(data => {
         const users = data.results;
