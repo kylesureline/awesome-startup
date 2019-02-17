@@ -27,13 +27,25 @@
     padding: 3em;
   }
   & .close {
-    position: absolute;
     top: 1em;
     right: 1em;
-    font-size: 1.5em;
-    height: 32px;
-    width: 32px;
+  }
+  & .left {
+    left: 1em;
+    top: 50%;
+  }
+  & .right {
+    right: 1em;
+    top: 50%;
+  }
+}
+
+.modal-content {
+  & .close,
+  & .left,
+  & .right {
     cursor: pointer;
+    position: absolute;
   }
 }
 

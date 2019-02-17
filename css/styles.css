@@ -524,13 +524,21 @@ main {
   }
 }
 .modal-content .close {
-  position: absolute;
   top: 1em;
   right: 1em;
-  font-size: 1.5em;
-  height: 32px;
-  width: 32px;
+}
+.modal-content .left {
+  left: 1em;
+  top: 50%;
+}
+.modal-content .right {
+  right: 1em;
+  top: 50%;
+}
+
+.modal-content .close, .modal-content .left, .modal-content .right {
   cursor: pointer;
+  position: absolute;
 }
 
 .modal .profile {

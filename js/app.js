@@ -90,7 +90,9 @@
 
 <div class="modal">
   <div class="modal-content">
-    <span class="close">×</span>
+    <span class="close"><img src="icons/close.svg" alt></span>
+    <span class="arrow left"><img src="icons/arrow_left.svg" alt></span>
+    <span class="arrow right"><img src="icons/arrow_right.svg" alt></span>
     <img class="profile" src="https://randomuser.me/api/portraits/men/73.jpg" alt="">
     <div>
       <div class="contact primary">
@@ -109,7 +111,6 @@
 
 */
 
-
   function displayModal(content) {
 
     function createElement(tagName, property, value) {
@@ -120,13 +121,18 @@
 
     const modal = createElement('div', 'className', 'modal');
     const modalContent = createElement('div', 'className', 'modal-content');
-    const closeBtn = createElement('span', 'className', 'close');
-    closeBtn.textContent = '×';
-    modalContent.innerHTML = content;
-    modalContent.insertBefore(closeBtn, modalContent.children[0]);
+
+    const btns = `
+      <span class="close"><img src="icons/close.svg" alt></span>
+      <span class="arrow left"><img src="icons/arrow_left.svg" alt></span>
+      <span class="arrow right"><img src="icons/arrow_right.svg" alt></span>
+    `;
+
+    modalContent.innerHTML = btns + content;
+    // modalContent.insertBefore(closeBtn, modalContent.children[0]);
     modal.appendChild(modalContent);
 
-    closeBtn.addEventListener('click', (e) => {
+    modalContent.querySelector('.close').addEventListener('click', (e) => {
       body.removeChild(modal);
     });
 
