@@ -54,8 +54,30 @@
         card.style.opacity = '';
       }, (time * index));
     });
-
   }
+
+  function placeCards() {
+    people.forEach((person, index) => {
+      let div = `
+        <div id="card-${index}" class="card" style="opacity: 0;">
+          <img class="profile" src="${person.picture}" alt=""/>
+          <div>
+            <div class="contact primary">
+              <h2 class="name">${person.name}</h2>
+              <p class="email">${person.email}</p>
+              <p class="city">${person.city}</p>
+            </div>
+            <div class="contact secondary">
+              <p class="phone">${person.phone}</p>
+              <p class="address">${person.address}</p>
+              <p class="birthday">${person.birthday}</p>
+            </div>
+          </div>
+        </div>
+      `;
+      main.innerHTML += div;
+    });
+  } // end placeCards
 
   function init() {
     fetchData('https://randomuser.me/api/?results=12&nat=us')
@@ -72,30 +94,11 @@
             birthday: formatBirthday(user.dob.date)
           };
           people.push(userObj);
-          let div = `
-            <div class="card" style="opacity: 0;">
-              <img class="profile" src="${user.picture.large}" alt=""/>
-              <div>
-                <div class="contact primary">
-                  <h2 class="name">${user.name.first} ${user.name.last}</h2>
-                  <p class="email">${user.email}</p>
-                  <p class="city">${user.location.city}</p>
-                </div>
-                <div class="contact secondary">
-                  <p class="phone">${user.cell}</p>
-                  <p class="address">${formatAddress(user)}</p>
-                  <p class="birthday">${formatBirthday(user.dob.date)}</p>
-                </div>
-              </div>
-            </div>
-          `;
-          main.innerHTML += div;
-        });
+        })
       })
-      .then(e => {
-        fadeInCards();
-      });
-  }
+      .then(e => placeCards())
+      .then(e => fadeInCards());
+    } // end init
 
 /*
 
