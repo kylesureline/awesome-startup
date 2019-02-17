@@ -3,7 +3,7 @@
   const main = document.querySelector('main');
   const body = document.querySelector('body');
 
-  // helper functions
+  // fetch helper functions
   function checkStatus(response) {
     if(response.ok) {
       return Promise.resolve(response);
@@ -23,7 +23,7 @@
   }
 
   function formatBirthday(date) {
-    //
+
     function pad(d) {
       const stringD = String(d);
       if(stringD.length === 1) {
@@ -45,13 +45,24 @@
     return `${month}/${day}/${year}`;
   }
 
+  function fadeInCards() {
+    const cards = main.querySelectorAll('.card');
+    let time = 50;
+    cards.forEach((card, index) => {
+      setTimeout(() => {
+        card.style.opacity = '';
+      }, (time * index));
+    });
+
+  }
+
   function init() {
     fetchData('https://randomuser.me/api/?results=12&nat=us')
       .then(data => {
         const users = data.results;
         users.forEach(user => {
           let div = `
-            <div class="card">
+            <div class="card" style="opacity: 0;">
               <img class="profile" src="${user.picture.large}" alt=""/>
               <div>
                 <div class="contact primary">
@@ -69,6 +80,9 @@
           `;
           main.innerHTML += div;
         });
+      })
+      .then(e => {
+        fadeInCards();
       });
   }
 

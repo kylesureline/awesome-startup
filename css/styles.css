@@ -420,6 +420,8 @@ main {
   border: 2px solid #d3d2d3;
   background-color: #fff;
   cursor: pointer;
+  opacity: 1;
+  transition: 0.4s opacity;
   border-radius: 6px;
   display: flex;
   justify-content: flex-start;
