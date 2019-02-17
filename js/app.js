@@ -126,9 +126,10 @@
 
 */
 
-  function displayModal(cardId) {
+  function displayModal(personIndex) {
 
-    const personIndex = parseInt(cardId.split('-')[1]);
+    console.log(personIndex);
+
     const person = people[personIndex];
 
     const modal = document.createElement('div');
@@ -163,31 +164,19 @@
       body.removeChild(modal);
     });
 
+    modal.querySelector('.right').addEventListener('click', (e) => {
+      if(personIndex < (people.length - 1)) {
+        body.removeChild(modal);
+        displayModal(personIndex + 1);
+      }
+    });
 
-    // function createElement(tagName, property, value) {
-    //   const element = document.createElement(tagName);
-    //   element[property] = value;
-    //   return element;
-    // }
-    //
-    // const modal = createElement('div', 'className', 'modal');
-    // const modalContent = createElement('div', 'className', 'modal-content');
-    //
-    // const btns = `
-    //   <span class="close"><img src="icons/close.svg" alt></span>
-    //   <span class="arrow left"><img src="icons/arrow_left.svg" alt></span>
-    //   <span class="arrow right"><img src="icons/arrow_right.svg" alt></span>
-    // `;
-    //
-    // modalContent.innerHTML = btns + content;
-    // // modalContent.insertBefore(closeBtn, modalContent.children[0]);
-    // modal.appendChild(modalContent);
-    //
-    // modalContent.querySelector('.close').addEventListener('click', (e) => {
-    //   body.removeChild(modal);
-    // });
-    //
-		// body.insertBefore(modal, body.children[0]);
+    modal.querySelector('.left').addEventListener('click', (e) => {
+      if(personIndex > 0) {
+        body.removeChild(modal);
+        displayModal(personIndex - 1);
+      }
+    });
 
   } // end displayModal
 
@@ -202,8 +191,9 @@
     }
 
     if(e.target.tagName !== 'MAIN') {
-      let cardId = getCardDiv(e.target).id;
-      displayModal(cardId);
+      const cardId = getCardDiv(e.target).id;
+      const personIndex = parseInt(cardId.split('-')[1]);
+      displayModal(personIndex);
     }
 
   });
