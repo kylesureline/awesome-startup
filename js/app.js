@@ -2,6 +2,7 @@
 
   const main = document.querySelector('main');
   const body = document.querySelector('body');
+  let people = [];
 
   // fetch helper functions
   function checkStatus(response) {
@@ -61,6 +62,16 @@
       .then(data => {
         const users = data.results;
         users.forEach(user => {
+          let userObj = {
+            picture: user.picture.large,
+            name: `${user.name.first} ${user.name.last}`,
+            email: user.email,
+            city: user.location.city,
+            phone: user.cell,
+            address: formatAddress(user),
+            birthday: formatBirthday(user.dob.date)
+          };
+          people.push(userObj);
           let div = `
             <div class="card" style="opacity: 0;">
               <img class="profile" src="${user.picture.large}" alt=""/>
