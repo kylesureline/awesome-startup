@@ -2,6 +2,7 @@
 
   const main = document.querySelector('main');
   const body = document.querySelector('body');
+  const search = document.querySelector('.search input');
   let people = [];
 
   // fetch helper functions
@@ -174,6 +175,33 @@
     }
 
   });
+
+  search.addEventListener('keyup', (e) => {
+
+    const searchStr = search.value.toLowerCase();
+    const cards = main.children;
+
+    function showAllCards() {
+      for(let i = 0; i < cards.length; i += 1) {
+        let card = cards[i];
+        card.style.display = '';
+      }
+    }
+
+    if(search.value === '') {
+      console.log('showing all cards');
+      showAllCards();
+    } else {
+      for(let i = 0; i < cards.length; i += 1) {
+        let card = cards[i];
+        let name = card.querySelector('.name').textContent;
+        if(!name.includes(searchStr)) {
+          card.style.display = 'none';
+        }
+      }
+    }
+
+  })
 
   init();
 
