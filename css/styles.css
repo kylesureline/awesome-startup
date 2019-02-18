@@ -454,6 +454,20 @@ main {
 .card .profile {
   border-radius: 50%;
   margin-right: 1em;
+  width: 84px;
+  height: 84px;
+}
+@media (max-width: 320px) {
+  .card .profile {
+    width: 60px;
+    height: 60px;
+  }
+}
+@media (min-width: 768px) {
+  .card .profile {
+    width: 100px;
+    height: 100px;
+  }
 }
 
 .card .name {
@@ -482,18 +496,18 @@ main {
 .card .city {
   color: #8f9498;
   margin: 4px 0;
-  font-size: 3.4vw;
+  font-size: 4vw;
 }
 @media (min-width: 768px) {
   .card .email,
 .card .city {
-    font-size: 1.65vw;
+    font-size: 1.8vw;
   }
 }
 @media (min-width: 1024px) {
   .card .email,
 .card .city {
-    font-size: 1vw;
+    font-size: 1.1vw;
   }
 }
 
@@ -513,32 +527,6 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
-.modal .contact.secondary {
-  border-top: 1px solid #d3d2d3;
-}
-.modal .birthday::before {
-  content: "Birthday: ";
-}
-.modal .primary {
-  padding-bottom: 0.5em;
-}
-.modal .secondary {
-  padding-top: 0.5em;
-}
-@media (min-width: 768px) {
-  .modal .primary {
-    padding-bottom: 1em;
-  }
-  .modal .secondary {
-    padding-top: 1em;
-  }
-}
-.modal .email, .modal .city, .modal .secondary {
-  color: #8f9498;
-}
-.modal .name {
-  text-transform: capitalize;
 }
 
 .modal-content {
@@ -584,6 +572,37 @@ main {
   border-radius: 50%;
   width: 172px;
   height: 172px;
+}
+
+.modal .email, .modal .city, .modal .secondary {
+  color: #8f9498;
+}
+
+.modal .primary {
+  padding-bottom: 0.5em;
+}
+.modal .secondary {
+  padding-top: 0.5em;
+}
+@media (min-width: 768px) {
+  .modal .primary {
+    padding-bottom: 1em;
+  }
+  .modal .secondary {
+    padding-top: 1em;
+  }
+}
+
+.modal .contact.secondary {
+  border-top: 1px solid #d3d2d3;
+}
+
+.modal .birthday::before {
+  content: "Birthday: ";
+}
+
+.modal .name {
+  text-transform: capitalize;
 }
 
 /*# sourceMappingURL=styles.css.map */
