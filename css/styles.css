@@ -530,6 +530,7 @@ main {
 }
 
 .modal-content {
+  min-height: 450px;
   width: calc(100% - 1em);
   max-width: 500px;
   background-color: #fff;
@@ -572,6 +573,12 @@ main {
   border-radius: 50%;
   width: 172px;
   height: 172px;
+}
+@media (max-width: 320px) {
+  .modal .profile {
+    width: 114px;
+    height: 114px;
+  }
 }
 
 .modal .email, .modal .city, .modal .secondary {
