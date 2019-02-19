@@ -1,4 +1,4 @@
-// document.addEventListener('DOMContentLoaded', (e) => {
+document.addEventListener('DOMContentLoaded', (e) => {
 
   const main = document.querySelector('main');
   const body = document.querySelector('body');
@@ -205,4 +205,4 @@
 
   init();
 
-// });
+});
