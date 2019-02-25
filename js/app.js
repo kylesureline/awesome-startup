@@ -143,16 +143,20 @@ document.addEventListener('DOMContentLoaded', (e) => {
     });
 
     modal.querySelector('.right').addEventListener('click', (e) => {
+      body.removeChild(modal);
       if(personIndex < (people.length - 1)) {
-        body.removeChild(modal);
         displayModal(personIndex + 1);
+      } else {
+        displayModal(0);
       }
     });
 
     modal.querySelector('.left').addEventListener('click', (e) => {
+      body.removeChild(modal);
       if(personIndex > 0) {
-        body.removeChild(modal);
         displayModal(personIndex - 1);
+      } else {
+        displayModal(people.length - 1);
       }
     });
 
