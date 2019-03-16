@@ -86,8 +86,18 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
     main.innerHTML = '<div class="loading"><p>Loading...</p></div>';
 
+    let loadingP = main.querySelector('.loading p');
+    let dotInterval = setInterval(() => {
+      if(loadingP.textContent.length > 12) {
+        loadingP.textContent = 'Loading...';
+      } else {
+        loadingP.textContent += '.';
+      }
+    }, 400);
+
     fetchData('https://randomuser.me/api/?results=12&nat=us')
       .then(data => {
+        clearInterval(dotInterval);
         const users = data.results;
         users.forEach(user => {
           let userObj = {
@@ -104,7 +114,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
       })
       .then(e => placeCards())
       .then(e => fadeInCards());
-    } // end init
+  } // end init
 
   function displayModal(personIndex) {
 
