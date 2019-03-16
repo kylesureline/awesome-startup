@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     let time = 50;
     cards.forEach((card, index) => {
       setTimeout(() => {
-        card.style.opacity = '';
+        card.classList.remove('fade-out');
       }, (time * index));
     });
   }
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
     people.forEach((person, index) => {
       let div = `
-        <div id="card-${index}" class="card" style="opacity: 0;">
+        <div id="card-${index}" class="card fade-out">
           <img class="profile" src="${person.picture}" alt=""/>
           <div>
             <div class="contact primary">
@@ -188,7 +188,7 @@ document.addEventListener('DOMContentLoaded', (e) => {
     function showAllCards() {
       for(let i = 0; i < cards.length; i += 1) {
         let card = cards[i];
-        card.style.display = '';
+        card.classList.remove('hidden');
       }
     }
 
@@ -200,12 +200,12 @@ document.addEventListener('DOMContentLoaded', (e) => {
         let card = cards[i];
         let name = card.querySelector('.name').textContent;
         if(!name.includes(searchStr)) {
-          card.style.display = 'none';
+          card.classList.add('hidden');
         }
       }
     }
 
-  })
+  });
 
   init();
 

@@ -27,3 +27,11 @@ main {
   height: calc(100vh - 200px);
   @include flexy($disp: flex, $dir: column, $just: center);
 }
+
+.hidden {
+  display: none !important;
+}
+
+.fade-out {
+  opacity: 0 !important;
+}

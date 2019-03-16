@@ -425,6 +425,14 @@ main {
   justify-content: center;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.fade-out {
+  opacity: 0 !important;
+}
+
 .card {
   padding: 0.75em;
   border: 2px solid #d3d2d3;
