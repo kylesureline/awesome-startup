@@ -57,8 +57,8 @@ document.addEventListener('DOMContentLoaded', (e) => {
 
   function init() {
 
-    function formatAddress(user) {
-      return `${user.location.street} ${user.location.city}, ${user.location.state} ${user.location.postcode}`;
+    function formatAddress({location}) {
+      return `${location.street.number} ${location.street.name} ${location.city}, ${location.state} ${location.postcode}`;
     }
 
     function formatBirthday(date) {
